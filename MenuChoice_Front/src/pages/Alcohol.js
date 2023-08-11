@@ -25,7 +25,7 @@ const Alcohol = () => {
     const randomValue = getRandomNumber(button.min, button.max);
 
     console.log("Random value made:", randomValue);
-    const resultPageUrl = `/resultpage/${randomValue}`;
+    const resultPageUrl = `/resultpagelist/${randomValue}`;
     navigate(resultPageUrl);
   };
 
