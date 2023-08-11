@@ -23,8 +23,10 @@ const ResultPage = () => {
       <div>
         <img src={resultsmp} />
       </div>
+      <Link to="/test">
+        <button id="testBtn">다시 선택하기</button>
+      </Link>
 
-      <button id="testBtn">다시 선택하기</button>
       <br />
       <Link to={`/resultpagelist/${randomValue}`}>
         <button id="listBtn">가게 보러가기</button>

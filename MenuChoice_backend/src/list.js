@@ -2,11 +2,12 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 const app = express();
 var db = require("./db.js"); //mysql 연결 설정
 var conn = db.init();
 const cors = require("cors"); // CORS 미들웨어 추가
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,10 +25,10 @@ app.get("/api/randomValue/:randomValue", (req, res) => {
 
   conn.query(queryFoodType, [randomValue], (err, resultsFoodType) => {
     if (err) {
-      console.error("Error querying 'id-food_type' table: ", err);
+      console.error("Error querying 'id-food_id' table: ", err);
       res
         .status(500)
-        .json({ error: "Error fetching id from 'id-food_type' table" });
+        .json({ error: "Error fetching id from 'id-food_id' table" });
     } else {
       if (resultsFoodType.length > 0) {
         const selectedIds = resultsFoodType.map((row) => row.id);

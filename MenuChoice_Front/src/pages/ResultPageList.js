@@ -19,12 +19,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ResultSlider = ({ storeInfo }) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
+  let settings;
+  if (storeInfo.length < 3) {
+    settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
+  } else {
+    settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+    };
+  }
 
   //<img src={store.image}
   return (
