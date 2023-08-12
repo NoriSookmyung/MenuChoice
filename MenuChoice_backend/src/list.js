@@ -7,7 +7,7 @@ const app = express();
 var db = require("./db.js"); //mysql 연결 설정
 var conn = db.init();
 const cors = require("cors"); // CORS 미들웨어 추가
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 //.env파일 불러오기 (안쓰면 안돌아감)
 dotenv.config();
@@ -16,7 +16,7 @@ const AWS = require("aws-sdk");
 app.use(cors());
 app.use(bodyParser.json());
 
-//http://localhost:5001/api/randomValue/11
+//http://localhost:5000/api/randomValue/11
 //get으로 데이터 전송(resultPage에)
 app.get("/api/randomValue/:randomValue", (req, res) => {
   // resultPage에서 전달한 선택 버튼의 id값
