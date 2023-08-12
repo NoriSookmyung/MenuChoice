@@ -16,7 +16,7 @@ import monstersmp from "../img/monster_sample.png";
 //아현 추가
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const ResultSlider = ({ storeInfo }) => {
   let settings;
@@ -97,6 +97,10 @@ const ResultPageList = () => {
       <div>
         <img src={resultsmp} />
       </div>
+
+      <Link to="/test">
+        <button id="testBtn">다시 선택하기</button>
+      </Link>
 
       <hr />
       <div>
