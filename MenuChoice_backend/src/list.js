@@ -7,12 +7,16 @@ const app = express();
 var db = require("./db.js"); //mysql 연결 설정
 var conn = db.init();
 const cors = require("cors"); // CORS 미들웨어 추가
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
+
+//.env파일 불러오기 (안쓰면 안돌아감)
+dotenv.config();
+const AWS = require("aws-sdk");
 
 app.use(cors());
 app.use(bodyParser.json());
 
-//http://localhost:5000/api/randomValue/11
+//http://localhost:5001/api/randomValue/11
 //get으로 데이터 전송(resultPage에)
 app.get("/api/randomValue/:randomValue", (req, res) => {
   // resultPage에서 전달한 선택 버튼의 id값
@@ -58,6 +62,34 @@ app.get("/api/randomValue/:randomValue", (req, res) => {
     }
   });
 });
+
+// bucketName 보내기
+app.get("/api/getBucketName", (req, res) => {
+  res.json({ bucketName: process.env.AWS_BUCKET_NAME });
+});
+
+/*
+//aws S3에서 이미지 가져오기
+const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+
+const S3 = new AWS.S3({
+  accessKeyId,
+  secretAccessKey,
+});
+
+이미지 url 생성 함수
+// https://menuchioce-img.s3.ap-northeast-2.amazonaws.com/menu_type/1.png
+function generateImgUrl(bucket, folderName, fileName) {
+  return `https://${bucket}.s3.ap-northeast-2.amazonaws.com/${folderName}/${fileName}.png`;
+}
+
+// 이미지 URL을 프론트로 보내는 API 엔드포인트
+app.get("/api/getImgUrl/:bucket/:folder/:fileName", (req, res) => {
+  const { bucket, folder, fileName } = req.params;
+  const imgUrl = generateImgUrl(bucket, folder, fileName);
+  res.json({ imgUrl });
+});*/
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

@@ -1,7 +1,8 @@
 var mysql = require("mysql");
+var dotenv = require("dotenv");
 
 //.env파일 불러오기 (안쓰면 안돌아감)
-require("dotenv").config();
+dotenv.config();
 
 var db = {
   host: process.env.DB_HOST,

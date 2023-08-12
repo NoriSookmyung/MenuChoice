@@ -20,7 +20,9 @@
     "react-slick": "^0.29.0",
     "reactstrap": "^9.2.0",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.88.2",
+    "webpack-cil": "^0.0.1-security"
   },
   "scripts": {
     "start": "react-scripts start",

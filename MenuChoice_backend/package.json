@@ -5,6 +5,7 @@
     "start": "node src/list.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.1435.0",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
