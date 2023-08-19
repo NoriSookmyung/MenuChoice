@@ -104,7 +104,7 @@ const ResultPageList = () => {
 
       <div>
         <img
-          src={`https://$menuchioce-img.s3.ap-northeast-2.amazonaws.com/food_type/${randomValue}.png`}
+          src={`https://menuchioce-img.s3.ap-northeast-2.amazonaws.com/food_type/${randomValue}.png`}
           style={{ maxWidth: "100%", height: "auto" }}
           alt="food_type_img"
         />
