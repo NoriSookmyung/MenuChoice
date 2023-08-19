@@ -80,7 +80,7 @@ const S3 = new AWS.S3({
 // 이미지 url 생성 함수
 // https://menuchioce-img.s3.ap-northeast-2.amazonaws.com/menu_type/1.png
 function generateImgUrl(bucket, folderName, fileName) {
-  return `https://${bucket}.s3.ap-northeast-2.amazonaws.com/${folderName}/${fileName}.png`;
+  return `https://menuchioce-img.s3.ap-northeast-2.amazonaws.com/${folderName}/${fileName}.png`;
 }
 
 // 이미지 URL을 프론트로 보내는 API 엔드포인트
