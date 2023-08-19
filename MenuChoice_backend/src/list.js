@@ -68,7 +68,6 @@ app.get("/api/getBucketName", (req, res) => {
   res.json({ bucketName: process.env.AWS_BUCKET_NAME });
 });
 
-/*
 //aws S3에서 이미지 가져오기
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
@@ -78,7 +77,7 @@ const S3 = new AWS.S3({
   secretAccessKey,
 });
 
-이미지 url 생성 함수
+// 이미지 url 생성 함수
 // https://menuchioce-img.s3.ap-northeast-2.amazonaws.com/menu_type/1.png
 function generateImgUrl(bucket, folderName, fileName) {
   return `https://${bucket}.s3.ap-northeast-2.amazonaws.com/${folderName}/${fileName}.png`;
@@ -89,7 +88,7 @@ app.get("/api/getImgUrl/:bucket/:folder/:fileName", (req, res) => {
   const { bucket, folder, fileName } = req.params;
   const imgUrl = generateImgUrl(bucket, folder, fileName);
   res.json({ imgUrl });
-});*/
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
